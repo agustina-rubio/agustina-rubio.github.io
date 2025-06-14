@@ -4,10 +4,36 @@
     box-sizing:border-box
 }
 
+
+.open_sans{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-variation-settings:
+    "width" 100;
+}
+
+body {
+  height: 100%;
+}
+
 header{
     background-color: rgb(31, 108, 114);
     width: 100%;
     height: 60px;
+}
+
+.TiendadeMusica_card{
+    display: flex;
+    align-items: center;
+}
+
+.TiendadeMusica_card img{
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    
 }
 
 /* repasar esta parte */
@@ -20,10 +46,6 @@ header{
 
 main{
     flex: 1;
-}
-
-body{
-    height: 100%;
 }
 
 nav{
@@ -48,26 +70,43 @@ nav{
 }
 
 .contenedor_limite{
-    border-style: none ;
     display: flex;
-    margin-left: -20px;
-    margin-right: -20px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 16px;
     background-color: rgb(231, 231, 231);
     border-radius: 12px;
-    margin-left: 1px;
-    margin-right: 1px;
-    flex-wrap: wrap;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
 }
 
-.card{
-    background-color: rgb(155, 196, 199);
-    border: 2px black;
-    padding: 10px;
-    margin: 10px;
+.card {
+    flex: 0 0 auto;
     width: 220px;
     height: 275px;
+    background-color: rgb(155, 196, 199);
+    padding: 10px;
+    margin: 0;
     text-align: center;
     border-radius: 10px;
+    scroll-snap-align: start;
+}
+
+.card:hover{
+    transform: scale(1.02);
+}
+
+.menu_inicial ul li a:hover{
+    color: rgb(59, 59, 59) ;
+}
+
+.contenedor_limite::-webkit-scrollbar {
+    height: 8px;
+}
+
+.contenedor_limite::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 4px;
 }
 
 .contenedor_instrumentos{
@@ -94,8 +133,6 @@ flex-wrap: wrap;
 justify-content: center;
 }
 
-
-
 img{
     height: 180px;
     width: 180px;
@@ -113,6 +150,17 @@ h3{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(31, 108, 114);
     text-align: center;
+}
+
+.promociones{
+    text-align: center;
+    padding: 20px;
+}
+
+.promociones h4{
+    font-size: 35px;
+    text-decoration: underline;
+    color: black;
 }
 
 p{
@@ -135,23 +183,30 @@ footer h4{
 
 .imagen_sucursales{
     max-width: 550px;
+    width: 100%;
     max-height: 450px;
     margin-top: 10px;
 }
 
 .imagen_sucursales img{
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 300px;
+    object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
 }
 
 .sucursales{
     background-color: rgb(155, 196, 199);
-    max-width: 560px;
+    max-width: 550px;
     min-width: 300px;
     min-height: ;
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
+}
+
+footer img{
+    width: 20px;
+    height: 20px;
 }
 
 .section_sucursales{
@@ -160,22 +215,26 @@ footer h4{
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 756px){
+    .promociones h4{
+        font-size: 30px;
+    }
+    
+}
+
 @media screen and (max-width: 680px){
     header{
         height: 90px;
     
     }
     .TiendadeMusica_card{
-        width: 160px;
+        width: 180px;
     }
     .menu_inicial{
         margin-top: 5px;
     }
-}
-
-@media screen and (max-width: 334px) {
-    header{
-        height: 115px;
+    .promociones h4{
+        font-size: 25px;
     }
 }
 
@@ -188,6 +247,15 @@ footer h4{
         gap: 0.1px;
         margin-top: -5px;
         text-align: end;
+    }
+    .promociones h4{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 464px){
+    .promociones h4{
+        font-size: 17px;
     }
 }
 
@@ -205,4 +273,12 @@ footer h4{
     }
 }
 
+@media screen and (max-width: 406px){
+    
+}
 
+@media screen and (max-width: 334px) {
+    header{
+        height: 70px;
+    }
+}
